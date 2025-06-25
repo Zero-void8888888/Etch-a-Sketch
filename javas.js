@@ -97,16 +97,30 @@ contain.appendChild(divSub15);
 contain.appendChild(divSub16);
 // grid has been done above and below is styling
 
+// makes the div pop out
 let subFlex = document.querySelectorAll(".subContainer");
 subFlex.forEach(d => {
     d.style.cssText ='display:flex; border: 2px black solid; height: 20px;';
-})
+});
 
 let ssubFlex = document.querySelectorAll(".ssubContainer");
 
 ssubFlex.forEach( d => {
     d.style.cssText ='display:flex; border: 2px black solid;height: 20px;width:20px; ';
-})
+});
+
+// adding hover affect
+ssubFlex.forEach( d => {
+    d.addEventListener("mouseenter", (e) => {
+            e.target.style.background = "blue";
+    })
+});
+
+ssubFlex.forEach( d => {
+    d.addEventListener("mouseleave", (e) => {
+            e.target.style.background = "white";
+    })
+});
 
  
 
