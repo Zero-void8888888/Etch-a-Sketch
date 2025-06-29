@@ -1,6 +1,128 @@
 let contain = document.querySelector("#container");
 
+//creates the button
 
+let btn = document.createElement("button");
+contain.appendChild(btn);
+btn.textContent = "click me";
+btn.style.cssText = ' font-size:10px;';
+let row = undefined;
+let column = undefined;
+
+
+
+btn.addEventListener("click", () => {
+    row = prompt("insert how many rows you would like"); 
+    column = prompt("insert how many colums you would like brother");
+    if(!isNaN(row) || !isNaN(column)|| row < 100 && column < 100 && row > 0 || column >  0 ){
+        deleteGrid();
+        creation(row,column)
+    }
+    else{
+        alert("Invalid inputs, please click again");
+    }
+ });
+
+//delete 
+
+
+function deleteGrid(){
+
+let divs = document.querySelectorAll(".subContainer");
+divs.forEach((d)=> {
+    d.remove();
+})
+
+}
+
+
+
+// redefine creation of div
+
+function creation ( row , column) {
+
+for(let i = 0; i < row; i++){
+    let quack = document.createElement("div");
+    quack.classList.add("subContainer");
+    container.append(quack);
+    
+    for(let j = 0; j < column; j++){
+        let meow = document.createElement("div");
+        meow.classList.add("ssubContainer");
+        quack.append(meow);
+    }
+};
+
+let subFlex = document.querySelectorAll(".subContainer");
+subFlex.forEach(d => {
+    d.style.cssText ='display:flex; border: 2px black solid; height: 20px;';
+});
+
+let ssubFlex = document.querySelectorAll(".ssubContainer");
+
+ssubFlex.forEach( d => {
+    d.style.cssText ='flex:1; border: 2px black solid;height: 20px;width:20px; ';
+});
+
+
+ssubFlex.forEach( d => {
+    d.addEventListener("mouseenter", (e) => {
+            e.target.style.background = "blue";
+    })
+});
+
+ssubFlex.forEach( d => {
+    d.addEventListener("mouseleave", (e) => {
+            e.target.style.background = "white";
+    })
+});
+
+}
+
+//structure of grid
+
+for(let i = 0; i < 16; i++){
+    let quack = document.createElement("div");
+    quack.classList.add("subContainer");
+    container.append(quack);
+    
+    for(let j = 0; j < 16; j++){
+        let meow = document.createElement("div");
+        meow.classList.add("ssubContainer");
+        quack.append(meow);
+    }
+};
+
+
+
+
+let subFlex = document.querySelectorAll(".subContainer");
+subFlex.forEach(d => {
+    d.style.cssText ='display:flex; border: 2px black solid; height: 20px;';
+});
+
+let ssubFlex = document.querySelectorAll(".ssubContainer");
+
+ssubFlex.forEach( d => {
+    d.style.cssText ='flex-grow:1 ; border: 2px black solid;height: 20px;width:20px; ';
+});
+
+
+ssubFlex.forEach( d => {
+    d.addEventListener("mouseenter", (e) => {
+            e.target.style.background = "blue";
+    })
+});
+
+ssubFlex.forEach( d => {
+    d.addEventListener("mouseleave", (e) => {
+            e.target.style.background = "white";
+    })
+});
+
+
+
+/*
 
 // creates the sub divs
 let divSub1 = document.createElement("div");
@@ -122,6 +244,7 @@ ssubFlex.forEach( d => {
     })
 });
 
+*/
  
 
 
